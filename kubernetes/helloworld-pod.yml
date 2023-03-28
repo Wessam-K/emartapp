@@ -1,0 +1,16 @@
+#POD
+apiVersion: v1
+kind: Pod
+metadata:
+  name: webserver2
+  labels:
+    env: prod
+    owner: wessam
+    country: Egypt 
+    Webserver: server
+spec:
+  containers:
+  - name: webserver
+    image: nginx:latest
+    ports:
+    - containerPort: 80
