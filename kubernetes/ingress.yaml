@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: multiapp
+spec:
+  rules:
+  - host : Weza.io
+    http:
+      path: 
+      - path: / 
+        pathtype: Prefix
+        backend:
+          service:
+            name: app1
+            port:
+              number: 80
+      - path: /app2
+        pathtype: Prefix
+        backend:
+          service:
+            name: /app2
+            port:
+              number: 8080
+      - path: /app3
+        pathtype: Prefix
+        backend:
+          service:
+            name: /app3
+            port:
+              number: 8080

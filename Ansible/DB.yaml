@@ -1,0 +1,24 @@
+- name: Setup DB server
+  hosts: DB
+  become: true
+  tasks:
+    - name: Install MariaDB server
+      yum:
+        name: mariadb-server
+        state: present
+
+    - name: install Python MySQL
+      yum:
+        name: MySQL-python
+        state: present  
+
+    - name: Start and enable MariaDB service
+      service:
+        name: mariadb
+        state: started
+        enabled: true
+        
+    - name: Create a new database with name 'Accounts'
+      mysql_db:
+        name: Accounts
+        state: present
